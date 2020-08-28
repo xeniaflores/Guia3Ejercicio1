@@ -1,0 +1,36 @@
+<div class="header">
+    <h1>Datos de los empleados</h1>
+    <p>Ingrese los datos que se le piden</p>
+</div>
+<label>Nombre:</label>
+<input type="text" [(ngModel)]="Nombre">
+<label>Apellido:</label>
+<input type="text" [(ngModel)]="Apellido">
+<label>Salario Base</label>
+<input type="text" [(ngModel)]="SueldoBase">
+<button class="button"(click)="Formulario()">Ingresar</button>
+<br/><br/>
+<table [hidden]="contador==0" class="detalles">
+
+<tr>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Salario</th>
+    <th>Renta</th>
+    <th>ISSS</th>
+    <th>AFP</th>
+    <th>Salario Con Descuento</th>
+</tr>
+<tbody>
+    <tr *ngFor="let Dato of registro">
+        <td>{{Dato.Nombre}}</td>
+        <td>{{Dato.Apellido}}</td>
+        <td>{{Dato.SueldoBase}}</td>
+        <td>{{Dato.SueldoBase*0.11}}</td>
+        <td>{{Dato.SueldoBase*0.073}}</td>
+        <td>{{Dato.SueldoBase*0.051}}</td>
+        <th>{{Dato.SueldoBase-Dato.SueldoBase*0.11-Dato.SueldoBase*0.073-Dato.SueldoBase*0.051}}</th>
+
+    </tr>
+</tbody>
+</table>
